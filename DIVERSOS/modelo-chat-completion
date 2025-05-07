@@ -1,0 +1,51 @@
+{
+   "model": "gpt-4o-mini-2024-07-18",
+   "messages": [
+     {
+       "role": "system",
+       "content": "Você é um sistema especializado em dividir mensagens em chunks seguindo regras específicas. Analise a mensagem de entrada e divida-a em chunks seguindo estas regras obrigatórias:\n\nREGRAS DE CHUNKING:\n\n1. REGRAS GERAIS:\n   - Cada chunk deve conter no máximo 2-3 frases completas por parágrafo\n   - Preserve a ordem original do conteúdo\n   - Não modifique o conteúdo original de forma alguma\n   - Use '\\n' para representar quebras de linha\n   - Não ignore nenhuma parte do texto\n   - Mensagens dentro de <template_de_respostas> devem ser agrupadas em um único chunk, devendo ocupar o espaço de uma única mensagem. A tag '<template_de_respostas>' não deve aparecer na resposta ao usuário. \n\n2. REGRAS PARA MÍDIA:\n   \n   EXEMPLO DE ENTRADA:\n   ```\n   \"E aeee! Olha só, quero te mostrar a nossa Área de Membros TOP que você terá acesso por R$ 19,90: <video>https://cdn.xpiria.com.br/xpiria/tour_area_de_membros.mp4 </video>\n   \n   E aí, será que vale a pena? Mas me conta, você é iniciante ou já trabalha com automações e IA?\"\n   ```\n\n   CHUNKS CORRETOS:\n   ```\n   {\"message\": \"E aeee! Olha só, quero te mostrar a nossa Área de Membros TOP que você terá acesso por R$ 19,90\", \"sequence_number\": 1},\n   {\"message\": \"<video>https://cdn.xpiria.com.br/xpiria/tour_area_de_membros.mp4 </video>\", \"sequence_number\": 2},\n   {\"message\": \"E aí, será que vale a pena? Mas me conta, você é iniciante ou já trabalha com automações e IA?\", \"sequence_number\": 3}\n   ```\n\n   REGRAS:\n   - Cada mídia (imagem, vídeo, documento ou áudio) deve estar em um chunk separado\n   - Formatos de mídia são identificados por:\n     * Imagens: `<imagem>url</imagem>`\n     * Vídeos: `<video>url</video>`\n     * Áudios: `<audio>url</audio>`\n  * Documentos: `<documento>url</documento>`\n - Links normais (URLs ou markdown) devem permanecer junto com seu texto\n   - Textos introdutórios de mídia devem ficar em chunks separados\n\n3. REGRAS DE FORMATAÇÃO:\n   - Mantenha emojis e formatação especial exatamente como no original\n   - Preserve espaços e quebras de linha conforme o original\n   - Não adicione pontuação ou formatação extra\n\n4. REGRAS DE VALIDAÇÃO:\n   - Cada mídia deve estar em seu próprio chunk\n   - Confirme se cada chunk tem um número de sequência único\n   - Garanta que o conteúdo total dos chunks equivale exatamente ao conteúdo original\n - Garanta que as mensagens contidas em <template_de_respostas> estão em apenas um único chunk \n\n PROCESSO DE ANÁLISE:\n1. Identifique elementos de mídia (imagens, vídeos, documentos ou áudios)\n2. Separe textos introdutórios de mídia\n3. Mantenha URLs e links normais junto com seu texto\n4. Aplique as regras de chunking conforme os exemplos acima\n5. Valide o resultado final\n\nFormate a saída como um objeto JSON."
+     },
+     {
+       "role": "user",
+       {{ `"content": ${JSON.stringify($json["data"].filter(item => item.role === "assistant")[0].content[0].text.value)}` }}
+   }
+   ],
+   "response_format": {
+     "type": "json_schema",
+     "json_schema": {
+ "name": "message_chunks",
+ "strict": true,
+ "schema": {
+   "type": "object",
+   "properties": {
+     "chunks": {
+       "type": "array",
+       "description": "An array of message chunks, where each chunk is a separate paragraph.",
+       "items": {
+         "type": "object",
+         "properties": {
+           "message": {
+             "type": "string",
+             "description": "An exact extraction from the original message. Each chunk must strictly reflect a coherent segment of the input, matching the original format and content without alteration. Links and media must appear in exclusive chunks, isolated, never duplicated, and never omitted."
+           },
+           "sequence_number": {
+             "type": "number",
+             "description": "The order of this chunk in the original message."
+           }
+         },
+         "required": [
+           "message",
+           "sequence_number"
+         ],
+         "additionalProperties": false
+       }
+     }
+   },
+   "required": [
+     "chunks"
+   ],
+   "additionalProperties": false
+ }
+}
+   }
+ }
