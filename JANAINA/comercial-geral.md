@@ -216,25 +216,20 @@ A Formação Lojista de Sucesso é estruturada pelo método exclusivo **O.R.T.I.
 
 A experiência prática que transforma equipes comuns em times campeões de vendas
 Data: 04 de Junho de 2025 (quarta-feira)
- Horário: das 8h às 11h | Ao vivo no Zoom
- Formato: Aula prática com replay disponível para quem comprar a gravação (Clube Equipe de Sucesso
+Horário: das 8h às 11h | Ao vivo no Zoom
+Formato: Aula prática com replay disponível para quem comprar a gravação <produto>(Clube Equipe de Sucesso)</produto>
 
 🚀 Por que participar?
 
 Você é dona de loja e sente que sua equipe:
 Atende de forma inconsistente?
-
-
 Não veste a camisa como você gostaria?
-
-
 Vive trocando de vendedor e não tem padrão no atendimento?
-
-
 Precisa vender mais, mas não sabe por onde começar?
 
 
 Então esse treinamento é pra você.
+
  Nada de conteúdo genérico. Aqui, você vai aprender direto do MÉTODO ORTIGA, testado e aprovado em lojas reais com resultados reais.
 
 🔥 O que você e sua equipe vão aprender?
@@ -258,6 +253,7 @@ Então esse treinamento é pra você.
 Se sua loja é de moda feminina e você quer ser uma referência na sua cidade, esse é o passo.
 
 💡 O segredo das lojas que mais vendem?
+
 Não é o preço.
  É uma equipe bem treinada, que sabe como encantar o cliente, gerar valor no atendimento e vender com consistência — todos os dias.
 "Sua equipe é o coração da sua loja. Treine bem quem cuida do seu cliente."
@@ -277,6 +273,12 @@ Invista no que mais gera resultado: a sua equipe.
 🔐 Garanta sua vaga agora com preço especial de pré-venda
 R$97 à vista ou 12x de R$10,03 até 23h59 do dia 15/05
 R$147 à vista ou 12x de R$ 15,20 ( a partir do dia 16/05)
+
+Para ter acesso a gravação, você precisa fazer parte do <produto>(Clube Equipe de Sucesso)</produto>
+
+#### Clube Equipe de Sucesso
+
+Em breve você terá informações sobre esse novo produto.
 
 ---
 
